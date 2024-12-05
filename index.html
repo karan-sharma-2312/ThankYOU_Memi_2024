@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="images/WhatsApp Image 2024-12-05 at 4.22.11 PM.jpeg" type="image/png">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: white;
+            font-size: 2rem;
+            animation: bounceIn 1s ease-in-out;
+        }
+
+        .manager-avatar {
+            display: block;
+            margin: 10px auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            margin: 0 10px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .tab:hover {
+            transform: scale(1.1);
+            background-color: #ff7eb3;
+            color: white;
+        }
+
+        .tab.active {
+            background-color: #ff6f91;
+            color: white;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounceIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .photos img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>Thank You Memi 🥳</header>
+    <img src="./images/WhatsApp Image 2024-12-05 at 4.22.11 PM.jpeg" alt="Manager Avatar" class="manager-avatar">
+
+    <div class="tabs">
+        <div class="tab" data-tab="detail">Details</div>
+        <div class="tab" data-tab="photos">Photos</div>
+    
+    </div>
+
+    <div class="content" id="detail">
+        <h2>Details</h2>
+        <h2>Dear Memi,</h2>
+        <p>
+            Thank you for guiding me and sharing your hands-on experience with the CN Unified Tool v2. 
+            The small additions you suggested have been incredibly helpful. I also want to thank you for 
+            showing such a high level of confidence in me while creating the tool and during day-to-day 
+            automation work. I am grateful for you teaching me how to debug logs from scratch. 
+        </p>
+        <p>
+            Thank you for giving me ideas and having faith in me. Thank you also for taking care of me. 
+            <br>The journey of you as a lead — "Karan, sun na / Karan, tu maar khayega / Karan, bhagg" — has been quite entertaining 😅😝. 
+        </p>
+        <p>
+            Thank you once again! 😇
+        </p>
+        <p>Regards,<br>Pyara Karan 😂</p>
+    </div>
+
+    <div class="content" id="photos">
+        <h2>Photos</h2>
+        <!-- <div class="photos">
+            <img src="./images/image.png" alt="Sample Photo">
+            <p>He is Mr. Manager</p>
+        </div> -->
+        <div class="photos">
+            <video width="320" height="240" controls>
+                <source src="./images/WhatsApp Video 2024-12-05 at 4.22.16 PM.mp4" type="video/mp4">
+            </video>
+            <p>Aap ke saath work-life balance toh hai, bas work thoda zyada hai aur life thodi kam! 😅😂</p>
+        </div>
+        <div class="photos">
+            <img src="./images/WhatsApp Image 2024-12-05 at 4.22.11 PM.jpeg" alt="Sample Photo">
+            <p>Such a beautiful family picture! Your daughter has your smile – truly adorable! 😊</p>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === tab.dataset.tab) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
